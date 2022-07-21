@@ -29,4 +29,7 @@ body {
     height: calc(var(--he) * 1px);
     width:  calc(var(--wi) * 1px);
   }
- 
+
+.grid-item-over {
+    background: red;
+}

@@ -13,3 +13,10 @@ function createGrid(gridSize) {
 }
 
 createGrid(gridSize)
+
+const gridItems = document.querySelectorAll('.grid-item');
+[...gridItems].forEach(item => {
+  item.addEventListener('mouseover', () => {
+    item.classList.add('grid-item-over');
+  })
+})
