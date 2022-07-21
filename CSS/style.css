@@ -1,6 +1,8 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
+    --he: 35;
+    --wi: 35;
   }
 
 body {
@@ -24,7 +26,7 @@ body {
 
 .grid-item {
     border: 1px dotted #ddd;
-    height: 35px;
-    width: 35px;
+    height: calc(var(--he) * 1px);
+    width:  calc(var(--wi) * 1px);
   }
  
