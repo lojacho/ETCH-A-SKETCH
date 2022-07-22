@@ -1,19 +1,18 @@
 let gridSize = document.getElementById("gridSize").value;
-document.getElementById("gridSize").addEventListener('change', createGrid);
+let gridSizeNumber = Number(gridSize);
+document.getElementById("gridSize").addEventListener('change', verifyMax);
 
 function createGrid(gridSize) {
-    gridSize = document.getElementById("gridSize").value;
+    gridSize = document.getElementById("gridSize").value;   
     const sketchPad = document.querySelector('.sketchPad');
     const rows= gridSize;
     const cols= gridSize;
     sketchPad.style.setProperty('--grid-rows', rows);
     sketchPad.style.setProperty('--grid-cols', cols);
-
     const list = document.querySelector(".sketchPad");
     while (list.hasChildNodes()) {
       list.removeChild(list.firstChild);
     }
-
     for (let i = 0; i < (rows * cols); i++) {
         let cell = document.createElement("div");
         sketchPad.appendChild(cell).className = "gridItem"
@@ -23,9 +22,6 @@ function createGrid(gridSize) {
         [...gridItem].forEach(item =>{
         item.style.setProperty('--he', heightItem);
         item.style.setProperty('--wi', widthItem);
-        console.log(heightItem)
-        console.log(widthItem)
-
         });
       };
       over();
@@ -40,5 +36,10 @@ function over(){
   })
 }
 
-createGrid(gridSize);
+function verifyMax(){ 
+  gridSize = document.getElementById("gridSize").value;
+  gridSizeNumber = Number(gridSize);
+  (gridSizeNumber>12) ? (alert("Ingrese un numero menor o igual a 12")) : (createGrid(gridSize));
+}
 
+verifyMax();
